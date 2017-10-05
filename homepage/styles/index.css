@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Marvel');
+
+h1, h2, h3, h4, h5 {
+	font-family: 'Julius Sans One', sans-serif;
+}
+
+a, p, {
+	font-family: 'Marvel', sans-serif;
+}
+
+#mainImage {
+	height: 60vh; 
+	width: 55%; 
+	background-image: url('/static/LV7A0572.CR2.jpg'); 
+	background-size: cover;
+	filter: brightness(50%);
+	transition: .75s;
+}
+
+#mainImage:hover {
+	background-image: url('/static/LV7A0572.CR2.jpg'); 
+	background-size: cover;
+	filter: brightness(200%);
+}
+
+#MILocation {
+	height: 40vh;
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 10vh;
+	text-align: center;
+	opacity: 0;
+	transition: .75s;
+	background-color: rgba(0,0,0,0);
+}
+
+#mainImage:hover #MILocation{
+	background-color: rgba(0,0,0,.5);
+}
+
+#mainText {
+	color: #FFF;
+	margin: auto;
+	font-size: 3em;
+	opacity: 0;
+    filter: alpha(opacity=0);
+	transition: .75s;
+}
+
+#mainImage:hover #mainText {
+	visibility: visible;
+	opacity: 1;
+    filter: alpha(opacity=100)
+}
+
+#imgTopLeft {
+	height: 30vh;
+	width: 45%;
+	background-image: url('/static/337.JPG');
+	background-size: cover;
+	filter: brightness(30%);
+	transition: .75s;
+}
+
+#imgTopLeft:hover {
+	background-image: url('/static/337.JPG');
+	background-size: cover;
+	filter: brightness(120%);
+}
+
+#smallMiddle {
+	height: 30vh;
+	width: 20%;
+	background-image: url('/static/IMG_0012.JPG');
+	background-size: cover;
+	filter: brightness(30%);
+	transition: .75s;
+}
+
+#smallMiddle:hover {
+	background-image: url('/static/IMG_0012.JPG');
+	background-size: cover;
+	filter: brightness(120%);
+}
+
+#tallRight {
+	height: 70vh;
+	width: 25%;
+	background-image: url('/static/IMG_2094.JPG');
+	background-size: cover;
+	filter: brightness(30%);
+	transition: .75s;
+}
+
+#tallRight:hover {
+	background-image: url('/static/IMG_2094.JPG');
+	background-size: cover;
+	filter: brightness(120%);
+}
+
+#bottomLeft {
+	height: 40vh;
+	width: 37.5%;
+	margin-top: -40vh;
+	background-image: url('/static/IMG_0025.JPG');
+	background-size: cover;
+	filter: brightness(30%);
+	transition: .75s;
+}
+
+#bottomLeft:hover {
+	background-image: url('/static/IMG_0025.JPG');
+	background-size: cover;
+	filter: brightness(120%);
+}
+
+#bottomMiddle {
+	height: 40vh;
+	width: 37.75%;
+	margin-top: -40vh;
+	margin-left: 37.25%;
+	background-image: url('/static/IMG_0518 (1).JPG');
+	background-size: cover;
+	filter: brightness(30%);
+	transition: .75s;
+}
+
+#bottomMiddle:hover {
+	background-image: url('/static/IMG_0518 (1).JPG');
+	background-size: cover;
+	filter: brightness(120%);
+}
