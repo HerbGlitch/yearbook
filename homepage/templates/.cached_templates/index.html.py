@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1504813494.856274
+_modified_time = 1507231328.5404599
 _enable_loop = True
 _template_filename = 'C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/index.html'
 _template_uri = 'index.html'
@@ -48,7 +48,7 @@ def render_content(context,**pageargs):
         def content():
             return render_content(context)
         __M_writer = context.writer()
-        __M_writer('\r\n    <div class="content">\r\n        <h3>Congratulations -- you\'ve successfully created a new django-mako-plus app!</h3>\r\n        <h4>Next Up: Go through the django-mako-plus tutorial and add Javascript, CSS, and urlparams to this page.</h4>\r\n    </div>\r\n')
+        __M_writer('\r\n    <style>\r\n    \thtml, body {\r\n    \t\tpadding: 0;\r\n    \t\tmargin: 0;\r\n    \t}\r\n    \tdiv{\r\n    \t\tfloat: left;\r\n    \t\tdisplay: inline;\r\n    \t}\r\n    </style>\r\n    <a href="/upload">\r\n    \t<div id="mainImage">\r\n    \t\t<div id="MILocation">\r\n    \t\t\t<h1 id="mainText">Upload a photo</h1>\r\n    \t\t</div>\r\n    \t</div>\r\n\t</a>\r\n    <div class="sameFilter" id="imgTopLeft"></div>\r\n    <div class="sameFilter" id="smallMiddle"></div>\r\n    <div class="sameFilter" id="tallRight"></div>\r\n    <div class="sameFilter" id="bottomLeft"></div>\r\n    <div class="sameFilter" id="bottomMiddle"></div>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()

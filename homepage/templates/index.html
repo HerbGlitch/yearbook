@@ -1,8 +1,26 @@
 <%inherit file="base.htm" />
 
 <%block name="content">
-    <div class="content">
-        <h3>Congratulations -- you've successfully created a new django-mako-plus app!</h3>
-        <h4>Next Up: Go through the django-mako-plus tutorial and add Javascript, CSS, and urlparams to this page.</h4>
-    </div>
+    <style>
+    	html, body {
+    		padding: 0;
+    		margin: 0;
+    	}
+    	div{
+    		float: left;
+    		display: inline;
+    	}
+    </style>
+    <a href="/upload">
+    	<div id="mainImage">
+    		<div id="MILocation">
+    			<h1 id="mainText">Upload a photo</h1>
+    		</div>
+    	</div>
+	</a>
+    <div class="sameFilter" id="imgTopLeft"></div>
+    <div class="sameFilter" id="smallMiddle"></div>
+    <div class="sameFilter" id="tallRight"></div>
+    <div class="sameFilter" id="bottomLeft"></div>
+    <div class="sameFilter" id="bottomMiddle"></div>
 </%block>
