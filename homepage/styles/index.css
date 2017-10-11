@@ -23,36 +23,56 @@ a, p, {
 	filter: brightness(200%);
 }
 
-#MILocation {
+input {
 	height: 40vh;
-	width: 90%;
+	border: 1px solid #fff;
+/*    width: 830px;*/
+    height: 40vh;
+	width: 100%;
 	margin-left: 5%;
-	margin-top: 10vh;
 	text-align: center;
-	opacity: 0;
 	transition: .75s;
-	background-color: rgba(0,0,0,0);
+	background-color: rgba(0,0,0,.5);
+	border-radius: 20px;
 }
 
-#mainImage:hover #MILocation{
-	background-color: rgba(0,0,0,.5);
+#MILocation {
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 20vh;
+	text-align: center;
+	transition: .75s;
+	/*background-color: rgba(0,0,0,.5);*/
+	border-radius: 20px;
 }
+
+input[type="file"]::-webkit-file-upload-button {
+	display: none;
+	color: transparent;
+}
+input[type="file" i] {
+	color: transparent;
+}
+
+/*#mainImage:hover #MILocation{
+	background-color: rgba(0,0,0,.5);
+}*/
 
 #mainText {
 	color: #FFF;
 	margin: auto;
 	font-size: 3em;
-	opacity: 0;
-    filter: alpha(opacity=0);
+	opacity: 100;
+    filter: alpha(opacity=100);
 	transition: .75s;
 }
 
-#mainImage:hover #mainText {
+/*#mainImage:hover #mainText {
 	visibility: visible;
 	opacity: 1;
     filter: alpha(opacity=100)
 }
-
+*/
 #imgTopLeft {
 	height: 30vh;
 	width: 45%;

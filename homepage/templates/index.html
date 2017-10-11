@@ -11,13 +11,16 @@
     		display: inline;
     	}
     </style>
-    <a href="/upload">
-    	<div id="mainImage">
-    		<div id="MILocation">
-    			<h1 id="mainText">Upload a photo</h1>
-    		</div>
-    	</div>
-	</a>
+	<div id="mainImage">
+		<div id="MILocation">
+            <form action="" id="form" method="post" enctype="multipart/form-data">
+                ${ csrf_input }
+                <h1 style="margin-top: 1em;" id="mainText">Upload a photo</h1>
+                <p style="margin-top: 2em; color: #fff;">Drag a photo on the box or click the box for a file explorer upload window</p>
+                <input type="file" class="box" name="file_field" multiple required="False" id="id_file_field" style="margin-top: -17em;">
+            </form>
+		</div>
+	</div>
     <div class="sameFilter" id="imgTopLeft"></div>
     <div class="sameFilter" id="smallMiddle"></div>
     <div class="sameFilter" id="tallRight"></div>
