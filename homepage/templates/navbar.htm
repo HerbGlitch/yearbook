@@ -46,7 +46,11 @@
 		          <li><a href="/student-life/">Student Life</a></li>
 		          <li><a href="/clubs/">Clubs</a></li>
 		          <li><a href="/staffers/">Staffers</a></li>
-		          <li><a href="/student-life/">Student Life</a></li>
+		          <li><a href="/sports/">Sports</a></li>
+		          <li><a href="/candids/">Candids</a></li>
+		          %if user.is_superuser:
+		          	<li><a href="/edit-images/">Edit Images</a></li>
+		          %endif
 	              <li class="dropdown">
 	                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile<span class="caret"></span></a>
 	                  <ul class="dropdown-menu"></ul>

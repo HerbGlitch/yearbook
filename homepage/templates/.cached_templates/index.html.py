@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1507750666.8857253
+_modified_time = 1509999810.1443048
 _enable_loop = True
 _template_filename = 'C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/index.html'
 _template_uri = 'index.html'
@@ -52,7 +52,7 @@ def render_content(context,**pageargs):
         __M_writer = context.writer()
         __M_writer('\r\n    <style>\r\n    \thtml, body {\r\n    \t\tpadding: 0;\r\n    \t\tmargin: 0;\r\n    \t}\r\n    \tdiv{\r\n    \t\tfloat: left;\r\n    \t\tdisplay: inline;\r\n    \t}\r\n    </style>\r\n\t<div id="mainImage">\r\n\t\t<div id="MILocation">\r\n            <form action="" id="form" method="post" enctype="multipart/form-data">\r\n                ')
         __M_writer(str( csrf_input ))
-        __M_writer('\r\n                <h1 style="margin-top: 1em;" id="mainText">Upload a photo</h1>\r\n                <p style="margin-top: 2em; color: #fff;">Drag a photo on the box or click the box for a file explorer upload window</p>\r\n                <input type="file" class="box" name="file_field" multiple required="False" id="id_file_field" style="margin-top: -17em;">\r\n            </form>\r\n\t\t</div>\r\n\t</div>\r\n    <div class="sameFilter" id="imgTopLeft"></div>\r\n    <div class="sameFilter" id="smallMiddle"></div>\r\n    <div class="sameFilter" id="tallRight"></div>\r\n    <a href="/staffers/"><div class="sameFilter" id="bottomLeft"></div></a>\r\n    <div class="sameFilter" id="bottomMiddle"></div>\r\n')
+        __M_writer('\r\n                <h1 style="margin-top: 1em;" id="mainText">Upload a photo</h1>\r\n                <p style="margin-top: 2em; color: #fff;">Drag a photo on the box or click the box for a file explorer upload window</p>\r\n                <input type="file" class="box" name="file_field" multiple required="False" id="id_file_field" style="margin-top: -17em;">\r\n            </form>\r\n\t\t</div>\r\n\t</div>\r\n    <a href="/student-life/"><div class="sameFilter" id="imgTopLeft"></div></a>\r\n    <a href="/clubs/"><div class="sameFilter" id="smallMiddle"></div></a>\r\n    <a href="/sports/"><div class="sameFilter" id="tallRight"></div></a>\r\n    <a href="/staffers/"><div class="sameFilter" id="bottomLeft"></div></a>\r\n    <a href="/candids/"><div class="sameFilter" id="bottomMiddle"></div></a>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
