@@ -26,4 +26,11 @@
     <a href="/sports/"><div class="sameFilter" id="tallRight"></div></a>
     <a href="/staffers/"><div class="sameFilter" id="bottomLeft"></div></a>
     <a href="/candids/"><div class="sameFilter" id="bottomMiddle"></div></a>
+      <script src="jquery.js"></script>
+  <script src="jquery.form.min.js"></script>
+  <script>
+    document.getElementById("id_file_field").onchange = function() {
+      document.getElementById("form").submit();
+    };
+  </script>
 </%block>

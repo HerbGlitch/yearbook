@@ -18,8 +18,7 @@ def process_request(request):
 		multipleFiles = request.FILES.getlist('file_field')
 		for mFiles in multipleFiles:
 			media = cmod.images()
-			media.file = mFiles
-			media.Name = mFiles
+			media.mainImage = mFiles
 			media.save()
 	context = {
 		'form': form,

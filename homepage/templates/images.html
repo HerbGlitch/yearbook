@@ -1,5 +1,18 @@
-<%inherit file="adminNav.htm" />
+<%inherit file="navbar.htm" />
 
 <%block name="content">
-    <h1>images will be displayed below</h1>
+	<div class="section contentpart">
+		<div class="container">
+			## <progress id="prog" max="100" value="0" style="display:none;"></progress>
+			<div class="row">
+				<div class="col-md-12">
+					%for image in imageqry:
+						<div class="col-md-4 imageOverlay">
+							<img style="height:auto; width:100%;" src="/static/${ image.mainImage }">
+						</div>
+					%endfor
+				</div>
+			</div>
+		</div>
+	</div>
 </%block>
