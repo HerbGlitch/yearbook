@@ -12,25 +12,15 @@
     	}
     </style>
 	<div id="mainImage">
-		<div id="MILocation">
-            <form action="" id="form" method="post" enctype="multipart/form-data">
-                ${ csrf_input }
-                <h1 style="margin-top: 1em;" id="mainText">Upload a photo</h1>
-                <p style="margin-top: 2em; color: #fff;">Drag a photo on the box or click the box for a file explorer upload window</p>
-                <input type="file" class="box" name="file_field" multiple required="False" id="id_file_field" style="margin-top: -17em;">
-            </form>
-		</div>
+		<div id="MILocation" class="textBox">
+            <div>
+                <h1 onclick="window.location = '/upload/'" style="cursor:pointer; margin-top: 1em;" id="mainText">Upload a Picture</h1>
+            </div>
+        </div>
 	</div>
     <a href="/student-life/"><div class="sameFilter" id="imgTopLeft"></div></a>
     <a href="/clubs/"><div class="sameFilter" id="smallMiddle"></div></a>
     <a href="/sports/"><div class="sameFilter" id="tallRight"></div></a>
     <a href="/staffers/"><div class="sameFilter" id="bottomLeft"></div></a>
     <a href="/candids/"><div class="sameFilter" id="bottomMiddle"></div></a>
-      <script src="jquery.js"></script>
-  <script src="jquery.form.min.js"></script>
-  <script>
-    document.getElementById("id_file_field").onchange = function() {
-      document.getElementById("form").submit();
-    };
-  </script>
 </%block>

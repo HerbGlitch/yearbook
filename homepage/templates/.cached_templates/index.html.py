@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1510346413.4805796
+_modified_time = 1515443527.9059858
 _enable_loop = True
 _template_filename = 'C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/index.html'
 _template_uri = 'index.html'
@@ -29,7 +29,6 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        csrf_input = context.get('csrf_input', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
         __M_writer = context.writer()
@@ -46,13 +45,10 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        csrf_input = context.get('csrf_input', UNDEFINED)
         def content():
             return render_content(context)
         __M_writer = context.writer()
-        __M_writer('\r\n    <style>\r\n    \thtml, body {\r\n    \t\tpadding: 0;\r\n    \t\tmargin: 0;\r\n    \t}\r\n    \tdiv{\r\n    \t\tfloat: left;\r\n    \t\tdisplay: inline;\r\n    \t}\r\n    </style>\r\n\t<div id="mainImage">\r\n\t\t<div id="MILocation">\r\n            <form action="" id="form" method="post" enctype="multipart/form-data">\r\n                ')
-        __M_writer(str( csrf_input ))
-        __M_writer('\r\n                <h1 style="margin-top: 1em;" id="mainText">Upload a photo</h1>\r\n                <p style="margin-top: 2em; color: #fff;">Drag a photo on the box or click the box for a file explorer upload window</p>\r\n                <input type="file" class="box" name="file_field" multiple required="False" id="id_file_field" style="margin-top: -17em;">\r\n            </form>\r\n\t\t</div>\r\n\t</div>\r\n    <a href="/student-life/"><div class="sameFilter" id="imgTopLeft"></div></a>\r\n    <a href="/clubs/"><div class="sameFilter" id="smallMiddle"></div></a>\r\n    <a href="/sports/"><div class="sameFilter" id="tallRight"></div></a>\r\n    <a href="/staffers/"><div class="sameFilter" id="bottomLeft"></div></a>\r\n    <a href="/candids/"><div class="sameFilter" id="bottomMiddle"></div></a>\r\n      <script src="jquery.js"></script>\r\n  <script src="jquery.form.min.js"></script>\r\n  <script>\r\n    document.getElementById("id_file_field").onchange = function() {\r\n      document.getElementById("form").submit();\r\n    };\r\n  </script>\r\n')
+        __M_writer('\r\n    <style>\r\n    \thtml, body {\r\n    \t\tpadding: 0;\r\n    \t\tmargin: 0;\r\n    \t}\r\n    \tdiv{\r\n    \t\tfloat: left;\r\n    \t\tdisplay: inline;\r\n    \t}\r\n    </style>\r\n\t<div id="mainImage">\r\n\t\t<div id="MILocation" class="textBox">\r\n            <div>\r\n                <h1 onclick="window.location = \'/upload/\'" style="cursor:pointer; margin-top: 1em;" id="mainText">Upload a Picture</h1>\r\n            </div>\r\n        </div>\r\n\t</div>\r\n    <a href="/student-life/"><div class="sameFilter" id="imgTopLeft"></div></a>\r\n    <a href="/clubs/"><div class="sameFilter" id="smallMiddle"></div></a>\r\n    <a href="/sports/"><div class="sameFilter" id="tallRight"></div></a>\r\n    <a href="/staffers/"><div class="sameFilter" id="bottomLeft"></div></a>\r\n    <a href="/candids/"><div class="sameFilter" id="bottomMiddle"></div></a>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -60,6 +56,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"28": 0, "36": 1, "46": 3, "53": 3, "54": 17, "55": 17, "61": 55}}
+{"filename": "C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"28": 0, "35": 1, "45": 3, "51": 3, "57": 51}}
 __M_END_METADATA
 """

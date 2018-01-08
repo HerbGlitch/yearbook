@@ -23,17 +23,12 @@ a, p, {
 	filter: brightness(200%);
 }
 
-input {
-	height: 40vh;
-	border: 1px solid #fff;
-/*    width: 830px;*/
-    height: 40vh;
-	width: 100%;
+.textBox {
 	margin-left: 5%;
 	text-align: center;
 	transition: .75s;
 	background-color: rgba(0,0,0,.5);
-	border-radius: 20px;
+
 }
 
 #MILocation {
