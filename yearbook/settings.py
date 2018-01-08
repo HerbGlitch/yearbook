@@ -26,7 +26,12 @@ SECRET_KEY = 't6&@3%tz8%p5zxa5vjye(#4a=37fjqv8sn1q4)tnmp#g8o0gi1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    ]
+
+AUTH_USER_MODEL = 'homepage.User'
 
 
 # Application definition
@@ -40,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_mako_plus',
     'homepage',
+    'polymorphic',
 ]
 
 MIDDLEWARE = [

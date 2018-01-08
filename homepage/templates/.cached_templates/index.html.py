@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1510175222.5908866
+_modified_time = 1510346413.4805796
 _enable_loop = True
 _template_filename = 'C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/index.html'
 _template_uri = 'index.html'
@@ -29,9 +29,9 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        csrf_input = context.get('csrf_input', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        csrf_input = context.get('csrf_input', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -46,9 +46,9 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        csrf_input = context.get('csrf_input', UNDEFINED)
         def content():
             return render_content(context)
-        csrf_input = context.get('csrf_input', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n    <style>\r\n    \thtml, body {\r\n    \t\tpadding: 0;\r\n    \t\tmargin: 0;\r\n    \t}\r\n    \tdiv{\r\n    \t\tfloat: left;\r\n    \t\tdisplay: inline;\r\n    \t}\r\n    </style>\r\n\t<div id="mainImage">\r\n\t\t<div id="MILocation">\r\n            <form action="" id="form" method="post" enctype="multipart/form-data">\r\n                ')
         __M_writer(str( csrf_input ))
