@@ -5,36 +5,66 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1507058705.0098321
+_modified_time = 1516653698.2343357
 _enable_loop = True
 _template_filename = 'C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'utf-8'
 import django_mako_plus
-_exports = ['content']
+_exports = ['header', 'content']
 
 
 def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        request = context.get('request', UNDEFINED)
+        def header():
+            return render_header(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
+        user = context.get('user', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('<!DOCTYPE html>\r\n<html>\r\n    <meta charset="UTF-8">\r\n    <head>\r\n\r\n        <title>homepage</title>\r\n\r\n')
-        __M_writer('        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>\r\n\r\n')
-        __M_writer('        ')
+        __M_writer('<!DOCTYPE html>\r\n<html>\r\n  <meta charset="UTF-8">\r\n  <head>\r\n    <title>Timpview Yearbook</title>\r\n')
+        __M_writer('    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>\r\n    <!-- Latest compiled and minified CSS -->\r\n    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">\r\n    <!-- Latest compiled and minified JavaScript -->\r\n    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>\r\n    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">\r\n    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>\r\n    <!-- Fonts from google -->\r\n    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">\r\n    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">\r\n')
+        __M_writer('    ')
         __M_writer(str( django_mako_plus.link_css(self) ))
-        __M_writer('\r\n\r\n        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">\r\n        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>\r\n        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>\r\n        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>\r\n\r\n    </head>\r\n    <body>\r\n\r\n        <header>\r\n        </header>\r\n\r\n        ')
+        __M_writer('\r\n    ')
+        if 'parent' not in context._data or not hasattr(context._data['parent'], 'header'):
+            context['self'].header(**pageargs)
+        
+
+        __M_writer('\r\n  </head>\r\n  <body>\r\n        <nav style="margin-bottom:0px;" id="mobilized_navbar_fix" class="navbar">\r\n        <!-- <nav style="border-bottom:none; margin-bottom:0px; background-color: transparent; border-radius: 1px;" id="mobilized_navbar_fix" class="navbar"> -->\r\n            <div class="container-fluid">\r\n              <!-- Brand and toggle get grouped for better mobile display -->\r\n              <div class="navbar-header">\r\n                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">\r\n                  <span class="glyphicon glyphicon-menu-hamburger"></span>\r\n                  <span class="sr-only">Toggle navigation</span>\r\n                  <span class="icon-bar"></span>\r\n                  <span class="icon-bar"></span>\r\n                  <span class="icon-bar"></span>\r\n                </button>\r\n\r\n                <a class="navbar-brand" href="/index">\r\n                  <!--<img style="height:50px; width:200px; margin-top:-15px;" src="http://placehold.it/150x50&text=Logo" alt="Nutrition For Wellness">-->\r\n                  <h1 id="siteName" style="margin-left: 10px; margin-top: -5px; color: orange">Timpview<span style="color:#337AB7">Yearbook</span></h1>\r\n                </a>\r\n              </div>\r\n\r\n              <!-- Collect the nav links, forms, and other content for toggling -->\r\n              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">\r\n                <ul class="nav navbar-nav navbar-right">\r\n                  <li><a href="/student-life/">Student Life</a></li>\r\n                  <li><a href="/clubs/">Clubs</a></li>\r\n                  <li><a href="/staffers/">Staffers</a></li>\r\n                  <li><a href="/sports/">Sports</a></li>\r\n                  <li><a href="/candids/">Candids</a></li>\r\n')
+        if user.is_superuser:
+            __M_writer('                    <li><a href="/edit-images/">Edit Images</a></li>\r\n')
+        if request.user.is_authenticated:
+            __M_writer('                      <li class="dropdown">\r\n                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">')
+            __M_writer(str( request.user.username ))
+            __M_writer('<span class="caret"></span></a>\r\n                          <ul class="dropdown-menu">\r\n                            <li><a href="/logout/">Logout</a></li>\r\n                          </ul>\r\n                      </li>\r\n')
+        else:
+            __M_writer('                    <li><a href="/login/">Login</a></li>\r\n')
+        __M_writer('                  </ul>\r\n                </div><!-- /.navbar-collapse -->\r\n              </div><!-- /.container-fluid -->\r\n            </nav>\r\n        ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
             context['self'].content(**pageargs)
         
 
-        __M_writer('\r\n\r\n')
+        __M_writer('\r\n')
         __M_writer('        ')
         __M_writer(str( django_mako_plus.link_js(self) ))
-        __M_writer('\r\n\r\n    </body>\r\n</html>\r\n')
+        __M_writer('\r\n  </body>\r\n</html>')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_header(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def header():
+            return render_header(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n    ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -46,7 +76,8 @@ def render_content(context,**pageargs):
         def content():
             return render_content(context)
         __M_writer = context.writer()
-        __M_writer('\r\n            \r\n        ')
+        __M_writer('\r\n')
+        __M_writer('        ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -54,6 +85,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"17": 0, "25": 2, "26": 10, "27": 13, "28": 13, "29": 13, "34": 28, "35": 31, "36": 31, "37": 31, "43": 26, "49": 26, "55": 49}}
+{"filename": "C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"17": 0, "29": 2, "30": 8, "31": 19, "32": 19, "33": 19, "38": 21, "39": 51, "40": 52, "41": 54, "42": 55, "43": 56, "44": 56, "45": 61, "46": 62, "47": 64, "52": 70, "53": 72, "54": 72, "55": 72, "61": 20, "67": 20, "73": 68, "79": 68, "80": 70, "86": 80}}
 __M_END_METADATA
 """

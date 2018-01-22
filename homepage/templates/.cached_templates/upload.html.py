@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1516651807.7475028
+_modified_time = 1516652293.5678785
 _enable_loop = True
 _template_filename = 'C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/upload.html'
 _template_uri = 'upload.html'
@@ -24,7 +24,7 @@ def _mako_generate_namespaces(context):
     pass
 def _mako_inherit(template, context):
     _mako_generate_namespaces(context)
-    return runtime._inherit_from(context, 'navbar.htm', _template_uri)
+    return runtime._inherit_from(context, 'base.htm', _template_uri)
 def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:

@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1515443527.9059858
+_modified_time = 1516653722.7437866
 _enable_loop = True
 _template_filename = 'C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/index.html'
 _template_uri = 'index.html'
@@ -48,7 +48,8 @@ def render_content(context,**pageargs):
         def content():
             return render_content(context)
         __M_writer = context.writer()
-        __M_writer('\r\n    <style>\r\n    \thtml, body {\r\n    \t\tpadding: 0;\r\n    \t\tmargin: 0;\r\n    \t}\r\n    \tdiv{\r\n    \t\tfloat: left;\r\n    \t\tdisplay: inline;\r\n    \t}\r\n    </style>\r\n\t<div id="mainImage">\r\n\t\t<div id="MILocation" class="textBox">\r\n            <div>\r\n                <h1 onclick="window.location = \'/upload/\'" style="cursor:pointer; margin-top: 1em;" id="mainText">Upload a Picture</h1>\r\n            </div>\r\n        </div>\r\n\t</div>\r\n    <a href="/student-life/"><div class="sameFilter" id="imgTopLeft"></div></a>\r\n    <a href="/clubs/"><div class="sameFilter" id="smallMiddle"></div></a>\r\n    <a href="/sports/"><div class="sameFilter" id="tallRight"></div></a>\r\n    <a href="/staffers/"><div class="sameFilter" id="bottomLeft"></div></a>\r\n    <a href="/candids/"><div class="sameFilter" id="bottomMiddle"></div></a>\r\n')
+        __M_writer('\r\n    <style>\r\n    \thtml, body {\r\n    \t\tpadding: 0;\r\n    \t\tmargin: 0;\r\n    \t}\r\n    \tdiv{\r\n    \t\tfloat: left;\r\n    \t\tdisplay: inline;\r\n    \t}\r\n    </style>\r\n\t<div id="mainImage">\r\n')
+        __M_writer('\t</div>\r\n    <a href="/student-life/"><div class="sameFilter" id="imgTopLeft"></div></a>\r\n    <a href="/clubs/"><div class="sameFilter" id="smallMiddle"></div></a>\r\n    <a href="/sports/"><div class="sameFilter" id="tallRight"></div></a>\r\n    <a href="/staffers/"><div class="sameFilter" id="bottomLeft"></div></a>\r\n    <a href="/candids/"><div class="sameFilter" id="bottomMiddle"></div></a>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -56,6 +57,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"28": 0, "35": 1, "45": 3, "51": 3, "57": 51}}
+{"filename": "C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"28": 0, "35": 1, "45": 3, "51": 3, "52": 20, "58": 52}}
 __M_END_METADATA
 """
