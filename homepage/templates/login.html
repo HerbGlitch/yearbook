@@ -1,0 +1,20 @@
+<%inherit file="navbar.htm" />
+
+<%block name="content">
+
+  <div style="height: 40px"></div>
+  <div class="content">
+    <div class="card col-md-6 col-md-push-3" style="padding: 20px;">
+      <h3 class="logtext" style="text-align: center;">Enter your username and password below to log in.</h3>
+      <form id="loginform" class="loginform" action="/login" method="post">${ csrf_input }
+        <div class="form-group">${ form }</div>
+          <a href="/homepage/register" class="forgotpass">New? Register Now</a>
+          <button type="submit" class="loginbtn" style="float: right;">Login</button>
+          <a href="/homepage/forgotpassword" class="forgotpass" style="float:right; padding-right: 15px;">Forgot Password?</a>
+        <div class="clearfix"></div>
+      </form>
+    </div>
+  </div>
+  <div style="height: 20px"></div>
+    
+</%block>
