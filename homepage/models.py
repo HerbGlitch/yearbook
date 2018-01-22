@@ -12,7 +12,7 @@ from django.forms.models import model_to_dict
 class User(AbstractUser):
 	email = models.EmailField(max_length=200, blank=True)
 	userType = models.CharField(max_length=200, null=True, blank=True, default='')
-	token = models.IntegerField(default=0)
+	approved = models.BooleanField(default = False)
 # Create your models here.
 class images(models.Model):
 	mainImage = models.ImageField(upload_to='', null=True, blank=True)
