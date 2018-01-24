@@ -1,24 +1,23 @@
-@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Marvel');
-
-h1, h2, h3, h4, h5 {
-	font-family: 'Julius Sans One', sans-serif;
+.sameFilter{
+	float: left;
+	display: inline;
 }
 
-a, p, {
-	font-family: 'Marvel', sans-serif;
+.footerFix{
+	max-height: calc(100%-50px);
 }
 
 #mainImage {
-	height: 60vh; 
-	width: 55%; 
-	background-image: url('/static/LV7A0572.CR2.jpg'); 
+	height: 60vh;
+	width: 55%;
+	background-image: url('/static/LV7A0572.CR2.jpg');
 	background-size: cover;
 	filter: brightness(50%);
 	transition: .75s;
 }
 
 #mainImage:hover {
-	background-image: url('/static/LV7A0572.CR2.jpg'); 
+	background-image: url('/static/LV7A0572.CR2.jpg');
 	background-size: cover;
 	filter: brightness(200%);
 }
@@ -131,7 +130,7 @@ input[type="file" i] {
 
 #bottomMiddle {
 	height: 40vh;
-	width: 37.75%;
+	width: 37.8%;
 	margin-top: -40vh;
 	margin-left: 37.25%;
 	background-image: url('/static/IMG_0518 (1).JPG');

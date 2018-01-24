@@ -5,9 +5,9 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1507923152.3366356
+_modified_time = 1516657412.182311
 _enable_loop = True
-_template_filename = 'C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/staffers.html'
+_template_filename = 'C:/Users/HerbGlitch/Desktop/School/yearbook/homepage/templates/staffers.html'
 _template_uri = 'staffers.html'
 _source_encoding = 'utf-8'
 import django_mako_plus
@@ -24,7 +24,7 @@ def _mako_generate_namespaces(context):
     pass
 def _mako_inherit(template, context):
     _mako_generate_namespaces(context)
-    return runtime._inherit_from(context, 'navbar.htm', _template_uri)
+    return runtime._inherit_from(context, 'base.htm', _template_uri)
 def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -37,6 +37,7 @@ def render_body(context,**pageargs):
             context['self'].content(**pageargs)
         
 
+        __M_writer('\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -48,7 +49,7 @@ def render_content(context,**pageargs):
         def content():
             return render_content(context)
         __M_writer = context.writer()
-        __M_writer('\r\n    \r\n')
+        __M_writer('\r\n\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -56,6 +57,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/staffers.html", "uri": "staffers.html", "source_encoding": "utf-8", "line_map": {"28": 0, "35": 1, "45": 3, "51": 3, "57": 51}}
+{"filename": "C:/Users/HerbGlitch/Desktop/School/yearbook/homepage/templates/staffers.html", "uri": "staffers.html", "source_encoding": "utf-8", "line_map": {"28": 0, "35": 1, "40": 5, "46": 3, "52": 3, "58": 52}}
 __M_END_METADATA
 """

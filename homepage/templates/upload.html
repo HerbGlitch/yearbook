@@ -1,5 +1,38 @@
 <%inherit file="base.htm" />
 
 <%block name="content">
-    
+  <%!
+  import os
+  %>
+  <div class="section contentpart">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Upload Content</h2>
+          <form action="/upload" id="form" method="post" enctype="multipart/form-data">
+            ${ csrf_input }
+            <input type="file" class="box" name="file_field" multiple required="False" id="id_file_field">
+          </form>
+        </div>
+      </div>
+      ## <progress id="prog" max="100" value="0" style="display:none;"></progress>
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Complete:</h2>
+          %for image in imageqry:
+            <div class="col-md-4 imageOverlay">
+              <img style="height:auto; width:100%;" src="/static/${ image.mainImage }">
+            </div>
+          %endfor
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="jquery.js"></script>
+  <script src="jquery.form.min.js"></script>
+  <script>
+    document.getElementById("id_file_field").onchange = function() {
+      document.getElementById("form").submit();
+    };
+  </script>
 </%block>

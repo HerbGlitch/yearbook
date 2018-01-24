@@ -1,26 +1,10 @@
 <%inherit file="base.htm" />
 
 <%block name="content">
-    <style>
-    	html, body {
-    		padding: 0;
-    		margin: 0;
-    	}
-    	div{
-    		float: left;
-    		display: inline;
-    	}
-    </style>
-	<div id="mainImage">
-		## <div id="MILocation" class="textBox">
-  ##           <div>
-  ##               <h1 onclick="window.location = '/upload/'" style="cursor:pointer; margin-top: 1em;" id="mainText">Upload a Picture</h1>
-  ##           </div>
-  ##       </div>
-	</div>
-    <a href="/student-life/"><div class="sameFilter" id="imgTopLeft"></div></a>
-    <a href="/clubs/"><div class="sameFilter" id="smallMiddle"></div></a>
-    <a href="/sports/"><div class="sameFilter" id="tallRight"></div></a>
-    <a href="/staffers/"><div class="sameFilter" id="bottomLeft"></div></a>
-    <a href="/candids/"><div class="sameFilter" id="bottomMiddle"></div></a>
+	<a href="/upload/"><div class="sameFilter" id="mainImage"></div>
+	<a href="/student-life/"><div class="sameFilter" id="imgTopLeft"></div></a>
+	<a href="/clubs/"><div class="sameFilter" id="smallMiddle"></div></a>
+	<a href="/sports/"><div class="sameFilter" id="tallRight"></div></a>
+	<a href="/staffers/"><div class="sameFilter" id="bottomLeft"></div></a>
+	<a href="/candids/"><div class="sameFilter" id="bottomMiddle"></div></a>
 </%block>
