@@ -5,9 +5,9 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1516653722.7437866
+_modified_time = 1516659395.3994253
 _enable_loop = True
-_template_filename = 'C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/index.html'
+_template_filename = 'C:/Users/HerbGlitch/Desktop/School/yearbook/homepage/templates/index.html'
 _template_uri = 'index.html'
 _source_encoding = 'utf-8'
 import django_mako_plus
@@ -37,6 +37,7 @@ def render_body(context,**pageargs):
             context['self'].content(**pageargs)
         
 
+        __M_writer('\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -48,8 +49,7 @@ def render_content(context,**pageargs):
         def content():
             return render_content(context)
         __M_writer = context.writer()
-        __M_writer('\r\n    <style>\r\n    \thtml, body {\r\n    \t\tpadding: 0;\r\n    \t\tmargin: 0;\r\n    \t}\r\n    \tdiv{\r\n    \t\tfloat: left;\r\n    \t\tdisplay: inline;\r\n    \t}\r\n    </style>\r\n\t<div id="mainImage">\r\n')
-        __M_writer('\t</div>\r\n    <a href="/student-life/"><div class="sameFilter" id="imgTopLeft"></div></a>\r\n    <a href="/clubs/"><div class="sameFilter" id="smallMiddle"></div></a>\r\n    <a href="/sports/"><div class="sameFilter" id="tallRight"></div></a>\r\n    <a href="/staffers/"><div class="sameFilter" id="bottomLeft"></div></a>\r\n    <a href="/candids/"><div class="sameFilter" id="bottomMiddle"></div></a>\r\n')
+        __M_writer('\r\n\t<a href="/upload/"><div class="sameFilter" id="mainImage"></div>\r\n\t<a href="/student-life/"><div class="sameFilter" id="imgTopLeft"></div></a>\r\n\t<a href="/clubs/"><div class="sameFilter" id="smallMiddle"></div></a>\r\n\t<a href="/sports/"><div class="sameFilter" id="tallRight"></div></a>\r\n\t<a href="/staffers/"><div class="sameFilter" id="bottomLeft"></div></a>\r\n\t<a href="/candids/"><div class="sameFilter" id="bottomMiddle"></div></a>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -57,6 +57,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"28": 0, "35": 1, "45": 3, "51": 3, "52": 20, "58": 52}}
+{"filename": "C:/Users/HerbGlitch/Desktop/School/yearbook/homepage/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"28": 0, "35": 1, "40": 10, "46": 3, "52": 3, "58": 52}}
 __M_END_METADATA
 """
