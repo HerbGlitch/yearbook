@@ -5,9 +5,9 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1516660932.849016
+_modified_time = 1516828582.838214
 _enable_loop = True
-_template_filename = 'C:/Users/HerbGlitch/Desktop/School/yearbook/homepage/templates/upload.html'
+_template_filename = 'C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/upload.html'
 _template_uri = 'upload.html'
 _source_encoding = 'utf-8'
 import django_mako_plus
@@ -33,9 +33,9 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        imageqry = context.get('imageqry', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        imageqry = context.get('imageqry', UNDEFINED)
         csrf_input = context.get('csrf_input', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
@@ -52,20 +52,21 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        imageqry = context.get('imageqry', UNDEFINED)
         def content():
             return render_content(context)
-        imageqry = context.get('imageqry', UNDEFINED)
         csrf_input = context.get('csrf_input', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n  ')
-        __M_writer('\r\n  <div class="section contentpart">\r\n    <div class="container">\r\n      <div class="row">\r\n        <div class="col-md-12">\r\n          <h2>Upload Content</h2>\r\n          <form action="/images" id="form" method="post" enctype="multipart/form-data">\r\n            ')
+        __M_writer('\r\n  <div class="section contentpart">\r\n    <div class="container">\r\n      <div class="row">\r\n        <div class="col-md-12">\r\n        <h1 style="width:100%; margin-top: 40px; text-align: center">Your Images</h1>\r\n          <form action="/upload" id="form" method="post" enctype="multipart/form-data">\r\n            ')
         __M_writer(str( csrf_input ))
-        __M_writer('\r\n            <input type="file" class="box" name="file_field" multiple required="False" id="id_file_field">\r\n          </form>\r\n        </div>\r\n      </div>\r\n')
-        __M_writer('      <div class="row">\r\n        <div class="col-md-12">\r\n          <h2>Complete:</h2>\r\n')
+        __M_writer('\r\n            <label for="id_file_field" class="custom-file-upload">\r\n              <i class="fa fa-cloud-upload"></i> upload\r\n            </label>\r\n            <input type="file" class="box" name="file_field" multiple required="False" id="id_file_field">\r\n          </form>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class="section contentpart">\r\n    <div class="container">\r\n      <div class="row">\r\n        <div class="col-md-12">\r\n')
         for image in imageqry:
-            __M_writer('            <div class="col-md-4 imageOverlay">\r\n              <img style="height:auto; width:100%;" src="/static/')
+            __M_writer('            <div class="image_styling col-md-4" style="background-image: url(\'/static/')
             __M_writer(str( image.mainImage ))
-            __M_writer('">\r\n            </div>\r\n')
+            __M_writer('\');">\r\n              <img src="/static/')
+            __M_writer(str( image.mainImage ))
+            __M_writer('" height="100px"/>\r\n              <button><i class="fa fa-trash-o"></i></button>\r\n            </div>\r\n')
         __M_writer('        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <script src="jquery.js"></script>\r\n  <script src="jquery.form.min.js"></script>\r\n  <script>\r\n    document.getElementById("id_file_field").onchange = function() {\r\n      document.getElementById("form").submit();\r\n    };\r\n  </script>\r\n')
         return ''
     finally:
@@ -74,6 +75,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/HerbGlitch/Desktop/School/yearbook/homepage/templates/upload.html", "uri": "upload.html", "source_encoding": "utf-8", "line_map": {"17": 4, "32": 0, "41": 1, "46": 38, "52": 3, "60": 3, "61": 6, "62": 13, "63": 13, "64": 19, "65": 22, "66": 23, "67": 24, "68": 24, "69": 27, "75": 69}}
+{"filename": "C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/upload.html", "uri": "upload.html", "source_encoding": "utf-8", "line_map": {"17": 4, "32": 0, "41": 1, "46": 44, "52": 3, "60": 3, "61": 6, "62": 13, "63": 13, "64": 27, "65": 28, "66": 28, "67": 28, "68": 29, "69": 29, "70": 33, "76": 70}}
 __M_END_METADATA
 """

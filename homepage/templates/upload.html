@@ -8,20 +8,26 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2>Upload Content</h2>
+        <h1 style="width:100%; margin-top: 40px; text-align: center">Your Images</h1>
           <form action="/upload" id="form" method="post" enctype="multipart/form-data">
             ${ csrf_input }
+            <label for="id_file_field" class="custom-file-upload">
+              <i class="fa fa-cloud-upload"></i> upload
+            </label>
             <input type="file" class="box" name="file_field" multiple required="False" id="id_file_field">
           </form>
         </div>
       </div>
-      ## <progress id="prog" max="100" value="0" style="display:none;"></progress>
+    </div>
+  </div>
+  <div class="section contentpart">
+    <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2>Complete:</h2>
           %for image in imageqry:
-            <div class="col-md-4 imageOverlay">
-              <img style="height:auto; width:100%;" src="/static/${ image.mainImage }">
+            <div class="image_styling col-md-4" style="background-image: url('/static/${ image.mainImage }');">
+              <img src="/static/${ image.mainImage }" height="100px"/>
+              <button><i class="fa fa-trash-o"></i></button>
             </div>
           %endfor
         </div>

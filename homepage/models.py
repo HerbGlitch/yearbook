@@ -15,4 +15,4 @@ class User(AbstractUser):
 	approved = models.BooleanField(default = False)
 # Create your models here.
 class images(models.Model):
-	mainImage = models.ImageField(upload_to='', null=True, blank=True)
+	mainImage = models.ImageField(upload_to='homepage/media/', null=True, blank=True)
