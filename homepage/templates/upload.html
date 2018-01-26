@@ -12,7 +12,7 @@
           <form action="/upload" id="form" method="post" enctype="multipart/form-data">
             ${ csrf_input }
             <label for="id_file_field" class="custom-file-upload">
-              <i class="fa fa-cloud-upload"></i> upload
+              <i class="fa fa-cloud-upload"></i> Upload
             </label>
             <input type="file" class="box" name="file_field" multiple required="False" id="id_file_field">
           </form>
@@ -23,14 +23,15 @@
   <div class="section contentpart">
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          %for image in imageqry:
-            <div class="image_styling col-md-4" style="background-image: url('/static/${ image.mainImage }');">
-              <img src="/static/${ image.mainImage }" height="100px"/>
-              <button><i class="fa fa-trash-o"></i></button>
+        %for image in imageqry:
+          <div class="col-md-4">
+            <div class="image_styling">
+              <img src="/static/${ image.mainImage }" width="100%"/>
+              <button onClick="" class="confirm">Submit: <i class="fa fa-check"></i></button>
+              <button class="trash btn btn-large btn-primary" data-toggle="confirmation" data-btn-ok-label="Continue" data-btn-ok-icon="glyphicon glyphicon-share-alt" data-btn-ok-class="btn-success" data-btn-cancel-label="Stoooop!" data-btn-cancel-icon="glyphicon glyphicon-ban-circle" data-btn-cancel-class="btn-danger" data-title="Is it ok?" data-content="This might be dangerous" data-singleton="true"><i class="fa fa-trash-o"></i></button>
             </div>
-          %endfor
-        </div>
+          </div>
+        %endfor
       </div>
     </div>
   </div>
@@ -40,5 +41,14 @@
     document.getElementById("id_file_field").onchange = function() {
       document.getElementById("form").submit();
     };
+
+    function deleteImage(){
+      if(confirm("Delete?")) {
+
+      }
+      else {
+
+      }
+    }
   </script>
 </%block>
