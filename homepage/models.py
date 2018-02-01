@@ -16,3 +16,4 @@ class User(AbstractUser):
 # Create your models here.
 class images(models.Model):
 	mainImage = models.ImageField(upload_to='homepage/media/', null=True, blank=True)
+	submitted = models.BooleanField(default = False)
