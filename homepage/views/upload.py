@@ -27,25 +27,48 @@ def delete_Image(request):
 	image_to_delete = images.objects.filter(id = temp_id).delete()
 	return HttpResponseRedirect('/upload/')
 
+@view_function
+def submit(request):
+	temp_id = request.urlparams[0]
+	image_to_confirm = images.objects.get(id = temp_id)
+	image_to_confirm.submitted = True
+	image_to_confirm.save()
+	return HttpResponseRedirect('/upload/')
+
 
 @view_function
 def process_request(request):
-	form = uploadForm(request, initial=model_to_dict(images))
-	if request.method == 'POST':
-		form = uploadForm(request.POST, request.FILES)
-		multipleFiles = request.FILES.getlist('file_field')
-		for mFiles in multipleFiles:
-			media = cmod.images()
-			media.mainImage = mFiles
-			media.save()
+	if request.urlparams[0] == "":
+		form = uploadForm(request, initial=model_to_dict(images))
+		if request.method == 'POST':
+			form = uploadForm(request.POST, request.FILES)
+			multipleFiles = request.FILES.getlist('file_field')
+			for mFiles in multipleFiles:
+				media = cmod.images()
+				media.mainImage = mFiles
+				media.user_sent = request.user
+				media.save()
 
-	imageqry = cmod.images.objects.all()
+		imageqry = cmod.images.objects.all()
+		adminBool = False;
 
-	template_vars = {
-	'form': form,
-	'now': datetime.now(),
-	'imageqry': imageqry,
-	'request': request,
-	}
+		template_vars = {
+		'adminBool': adminBool,
+		'form': form,
+		'now': datetime.now(),
+		'imageqry': imageqry,
+		'request': request,
+		}
 
-	return dmp_render(request, 'upload.html', template_vars)
+		return dmp_render(request, 'upload.html', template_vars)
+	elif request.urlparams[0] == "admin":
+		imageqry = cmod.images.objects.filter(submitted = True)
+		adminBool = True;
+
+		template_vars = {
+			'adminBool': adminBool,
+			'imageqry': imageqry,
+			'request': request,
+		}
+
+		return dmp_render(request, 'upload.html', template_vars)
