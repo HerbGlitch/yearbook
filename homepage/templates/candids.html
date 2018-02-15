@@ -1,5 +1,25 @@
 <%inherit file="base.htm" />
 
 <%block name="content">
-    
+  %if not request.user.adminify:
+    <div class="section contentpart">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 style="width:100%; margin-top: 40px; text-align: center">Candids</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  %else:
+    <div class="section contentpart">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 style="width:100%; margin-top: 40px; text-align: center">Candids Admin</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  %endif
 </%block>

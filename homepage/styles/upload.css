@@ -1,5 +1,5 @@
 input[type="file"] {
-    display: none;
+    display: none !important;
 }
 
 .custom-file-upload {
@@ -83,4 +83,46 @@ input[type="file"] {
 
 .alert {
 	height: 80px;
+}
+
+i.tooltips {
+  position: relative;
+  display: inline;
+}
+
+i.tooltips span {
+  position: absolute;
+  width:151px;
+  color: #FFFFFF;
+  background: #2E2E2E;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+
+i.tooltips span:after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-bottom: 8px solid #2E2E2E;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+
+i:hover.tooltips span {
+  visibility: visible;
+  opacity: 0.8;
+  top: 30px;
+  left: 50%;
+  margin-left: -76px;
+  z-index: 999;
+}
+
+.marvel{
+  font-family: 'Marvel', sans-serif;
 }

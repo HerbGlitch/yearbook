@@ -35,6 +35,15 @@ def submit(request):
 	image_to_confirm.save()
 	return HttpResponseRedirect('/upload/')
 
+@view_function
+def unsubmit(request):
+	temp_id = request.urlparams[0]
+	image_to_confirm = images.objects.get(id = temp_id)
+	image_to_confirm.submitted = False
+	image_to_confirm.save()
+	return HttpResponseRedirect('/upload/')
+
+
 
 @view_function
 def process_request(request):
@@ -50,25 +59,13 @@ def process_request(request):
 				media.save()
 
 		imageqry = cmod.images.objects.all()
-		adminBool = False;
 
 		template_vars = {
-		'adminBool': adminBool,
 		'form': form,
 		'now': datetime.now(),
 		'imageqry': imageqry,
 		'request': request,
-		}
-
-		return dmp_render(request, 'upload.html', template_vars)
-	elif request.urlparams[0] == "admin":
-		imageqry = cmod.images.objects.filter(submitted = True)
-		adminBool = True;
-
-		template_vars = {
-			'adminBool': adminBool,
-			'imageqry': imageqry,
-			'request': request,
+		'page_href': 'upload',
 		}
 
 		return dmp_render(request, 'upload.html', template_vars)

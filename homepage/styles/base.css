@@ -7,15 +7,23 @@ html, body {
 }
 
 h1, h2, h3, h4, h5 {
-	font-family: 'Julius Sans One', sans-serif;
+	font-family: 'Julius Sans One', sans-serif !important;
 }
 
-a, p {
-	font-family: 'Marvel', sans-serif;
+a, p, i {
+	font-family: 'Marvel', sans-serif !important;
 }
 
 nav {
 	height:50px;
+}
+
+#siteName{
+	font-family: 'Julius Sans One', sans-serif;
+}
+
+.footerFix {
+	min-height:100vh;
 }
 
 ::-webkit-scrollbar {
