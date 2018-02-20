@@ -5,17 +5,13 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1516997477.9625208
+_modified_time = 1518729156.312117
 _enable_loop = True
 _template_filename = 'C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/upload.html'
 _template_uri = 'upload.html'
 _source_encoding = 'utf-8'
 import django_mako_plus
 _exports = ['content']
-
-
-
-import os
 
 
 def _mako_get_namespace(context, name):
@@ -33,6 +29,7 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        request = context.get('request', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
         imageqry = context.get('imageqry', UNDEFINED)
@@ -52,20 +49,64 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        request = context.get('request', UNDEFINED)
         def content():
             return render_content(context)
         imageqry = context.get('imageqry', UNDEFINED)
         csrf_input = context.get('csrf_input', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n  ')
-        __M_writer('\r\n  <div class="section contentpart">\r\n    <div class="container">\r\n      <div class="row">\r\n        <div class="col-md-12">\r\n        <h1 style="width:100%; margin-top: 40px; text-align: center">Your Images</h1>\r\n          <form action="/upload" id="form" method="post" enctype="multipart/form-data">\r\n            ')
-        __M_writer(str( csrf_input ))
-        __M_writer('\r\n            <label for="id_file_field" class="custom-file-upload">\r\n              <i class="fa fa-cloud-upload"></i> Upload\r\n            </label>\r\n            <input type="file" class="box" name="file_field" multiple required="False" id="id_file_field">\r\n          </form>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class="section contentpart">\r\n    <div class="container">\r\n      <div class="row">\r\n')
-        for image in imageqry:
-            __M_writer('          <div class="col-md-4">\r\n            <div class="image_styling">\r\n              <img src="/static/')
-            __M_writer(str( image.mainImage ))
-            __M_writer('" width="100%"/>\r\n              <button onClick="" class="confirm">Submit: <i class="fa fa-check"></i></button>\r\n              <button class="trash btn btn-large btn-primary" data-toggle="confirmation" data-btn-ok-label="Continue" data-btn-ok-icon="glyphicon glyphicon-share-alt" data-btn-ok-class="btn-success" data-btn-cancel-label="Stoooop!" data-btn-cancel-icon="glyphicon glyphicon-ban-circle" data-btn-cancel-class="btn-danger" data-title="Is it ok?" data-content="This might be dangerous" data-singleton="true"><i class="fa fa-trash-o"></i></button>\r\n            </div>\r\n          </div>\r\n')
-        __M_writer('      </div>\r\n    </div>\r\n  </div>\r\n  <script src="jquery.js"></script>\r\n  <script src="jquery.form.min.js"></script>\r\n  <script>\r\n    document.getElementById("id_file_field").onchange = function() {\r\n      document.getElementById("form").submit();\r\n    };\r\n\r\n    function deleteImage(){\r\n      if(confirm("Delete?")) {\r\n\r\n      }\r\n      else {\r\n\r\n      }\r\n    }\r\n  </script>\r\n')
+        __M_writer('\r\n')
+        if not request.user.adminify:
+            __M_writer('    <div class="section contentpart">\r\n      <div class="container">\r\n        <div class="row">\r\n          <div class="col-md-12">\r\n          <h1 style="width:100%; margin-top: 40px; text-align: center">Your Images</h1>\r\n            <form action="/upload" id="form" method="post" enctype="multipart/form-data">\r\n              ')
+            __M_writer(str( csrf_input ))
+            __M_writer('\r\n              <label for="id_file_field" class="custom-file-upload">\r\n                <i class="fa fa-cloud-upload"></i> Upload\r\n              </label>\r\n              <input type="file" class="box" name="file_field" multiple required="False" id="id_file_field">\r\n            </form>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class="section contentpart">\r\n      <div class="container">\r\n        <div class="row">\r\n')
+            for image in imageqry:
+                __M_writer('            <div class="col-md-4">\r\n              <div class="image_styling">\r\n                <img src="/static/')
+                __M_writer(str( image.mainImage ))
+                __M_writer('" width="100%"/>\r\n')
+                if image.submitted:
+                    __M_writer('                  <button onClick="window.location = \'/upload.unsubmit/')
+                    __M_writer(str( image.id ))
+                    __M_writer('\'" id="submit')
+                    __M_writer(str( image.id ))
+                    __M_writer('" class="confirm">\r\n                    <i class="fa fa-remove tooltips" href="#"><span class="marvel">Unsubmit</span></i>\r\n                  </button>\r\n')
+                else:
+                    __M_writer('                  <button onClick="window.location = \'/upload.submit/')
+                    __M_writer(str( image.id ))
+                    __M_writer('\'" id="submit')
+                    __M_writer(str( image.id ))
+                    __M_writer('" class="confirm">\r\n                    <i class="fa fa-check tooltips" href="#"><span class="marvel">Submit</span></i>\r\n                  </button>\r\n')
+                __M_writer('                <button class="trash" id="trash')
+                __M_writer(str( image.id ))
+                __M_writer('" data-singleton="true" onClick="alertShow(')
+                __M_writer(str( image.id ))
+                __M_writer(')">\r\n                  <i class="fa fa-trash-o tooltips" href="#"><span class="marvel">Delete</span></i>\r\n                </button>\r\n                <div style="display:none;" class="alert alert-danger" id="alert')
+                __M_writer(str( image.id ))
+                __M_writer('" role="alert">\r\n                  <strong>Alert:</strong> Are you sure you want to delete this Image?\r\n                  <button class="trash_small" onClick="window.location = \'/upload.delete_Image/')
+                __M_writer(str( image.id ))
+                __M_writer('\'">Delete</button>\r\n                  <button class="cancel" onClick="alertHide(')
+                __M_writer(str( image.id ))
+                __M_writer(')">Cancel</button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n')
+            __M_writer('        </div>\r\n      </div>\r\n    </div>\r\n    <script src="jquery.js"></script>\r\n    <script src="jquery.form.min.js"></script>\r\n    <script>\r\n      document.getElementById("id_file_field").onchange = function() {\r\n        document.getElementById("form").submit();\r\n      };\r\n\r\n      function alertShow(id){\r\n        var displayAlert = document.getElementById("alert" + id);\r\n        displayAlert.style="display: block;";\r\n\r\n        var trashHidden = document.getElementById("trash" + id);\r\n        trashHidden.style= "display: none;";\r\n        var submitHidden = document.getElementById("submit" + id);\r\n        submitHidden.style = "display: none;";\r\n      }\r\n\r\n      function alertHide(id){\r\n        var hideAlert = document.getElementById("alert" + id);\r\n        hideAlert.style="display: none;";\r\n\r\n        var trashShow = document.getElementById("trash" + id);\r\n        trashShow.style= "display: inital;";\r\n        var submitShow = document.getElementById("submit" + id);\r\n        submitShow.style = "display: inital;";\r\n      }\r\n\r\n      function deleteImage(){\r\n      }\r\n    </script>\r\n')
+        elif request.user.adminify:
+            __M_writer('    <div class="section contentpart">\r\n      <div class="container">\r\n        <div class="row">\r\n          <div class="col-md-12">\r\n            <h1 style="width:100%; margin-top: 40px; text-align: center">Image Admin</h1>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class="section contentpart">\r\n      <div class="container">\r\n        <div class="row">\r\n')
+            for image in imageqry:
+                __M_writer('            <div class="col-md-4">\r\n              <div class="image_styling">\r\n                <img src="/static/')
+                __M_writer(str( image.mainImage ))
+                __M_writer('" width="100%"/>\r\n                <button onClick="" id="submit')
+                __M_writer(str( image.id ))
+                __M_writer('" class="confirm">Submit: <i class="fa fa-check"></i></button>\r\n                <button class="trash" id="trash')
+                __M_writer(str( image.id ))
+                __M_writer('" data-singleton="true" onClick="alertShow(')
+                __M_writer(str( image.id ))
+                __M_writer(')"><i class="fa fa-trash-o"></i></button>\r\n                <div style="display:none;" class="alert alert-danger" id="alert')
+                __M_writer(str( image.id ))
+                __M_writer('" role="alert">\r\n                  <strong>Alert:</strong> Are you sure you want to delete this Image?\r\n                  <button class="trash_small" onClick="window.location = \'/upload.delete_Image/')
+                __M_writer(str(image.id ))
+                __M_writer('\'">Delete</button>\r\n                  <button class="cancel" onClick="alertHide(')
+                __M_writer(str( image.id ))
+                __M_writer(')">Cancel</button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n')
+            __M_writer('        </div>\r\n      </div>\r\n    </div>\r\n    <script src="jquery.js"></script>\r\n    <script src="jquery.form.min.js"></script>\r\n    <script>\r\n      document.getElementById("id_file_field").onchange = function() {\r\n        document.getElementById("form").submit();\r\n      };\r\n\r\n      function alertShow(id){\r\n        var displayAlert = document.getElementById("alert" + id);\r\n        displayAlert.style="display: block;";\r\n\r\n        var trashHidden = document.getElementById("trash" + id);\r\n        trashHidden.style= "display: none;";\r\n        var submitHidden = document.getElementById("submit" + id);\r\n        submitHidden.style = "display: none;";\r\n      }\r\n\r\n      function alertHide(id){\r\n        var hideAlert = document.getElementById("alert" + id);\r\n        hideAlert.style="display: none;";\r\n\r\n        var trashShow = document.getElementById("trash" + id);\r\n        trashShow.style= "display: inital;";\r\n        var submitShow = document.getElementById("submit" + id);\r\n        submitShow.style = "display: inital;";\r\n      }\r\n\r\n      function deleteImage(){\r\n      }\r\n    </script>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -73,6 +114,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/upload.html", "uri": "upload.html", "source_encoding": "utf-8", "line_map": {"17": 4, "32": 0, "41": 1, "46": 54, "52": 3, "60": 3, "61": 6, "62": 13, "63": 13, "64": 26, "65": 27, "66": 29, "67": 29, "68": 35, "74": 68}}
+{"filename": "C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/upload.html", "uri": "upload.html", "source_encoding": "utf-8", "line_map": {"28": 0, "38": 1, "43": 142, "49": 3, "58": 3, "59": 4, "60": 5, "61": 11, "62": 11, "63": 24, "64": 25, "65": 27, "66": 27, "67": 28, "68": 29, "69": 29, "70": 29, "71": 29, "72": 29, "73": 32, "74": 33, "75": 33, "76": 33, "77": 33, "78": 33, "79": 37, "80": 37, "81": 37, "82": 37, "83": 37, "84": 40, "85": 40, "86": 42, "87": 42, "88": 43, "89": 43, "90": 48, "91": 81, "92": 82, "93": 94, "94": 95, "95": 97, "96": 97, "97": 98, "98": 98, "99": 99, "100": 99, "101": 99, "102": 99, "103": 100, "104": 100, "105": 102, "106": 102, "107": 103, "108": 103, "109": 108, "115": 109}}
 __M_END_METADATA
 """

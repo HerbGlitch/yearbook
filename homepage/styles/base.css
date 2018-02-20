@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Marvel');
+
+html, body {
+	padding: 0;
+	margin: 0;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: 'Julius Sans One', sans-serif !important;
+}
+
+a, p, i {
+	font-family: 'Marvel', sans-serif !important;
+}
+
+nav {
+	height:50px;
+}
+
+#siteName{
+	font-family: 'Julius Sans One', sans-serif;
+}
+
+.footerFix {
+	min-height:100vh;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}

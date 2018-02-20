@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1516653261.5566726
+_modified_time = 1517858688.4552894
 _enable_loop = True
 _template_filename = 'C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/edit-images.html'
 _template_uri = 'edit-images.html'
@@ -37,6 +37,7 @@ def render_body(context,**pageargs):
             context['self'].content(**pageargs)
         
 
+        __M_writer('\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -48,7 +49,7 @@ def render_content(context,**pageargs):
         def content():
             return render_content(context)
         __M_writer = context.writer()
-        __M_writer('\r\n    \r\n')
+        __M_writer('\r\n  <div class="section contentpart">\r\n    <div class="container">\r\n      <div class="row">\r\n        <div class="col-md-12">\r\n          <h1 style="width:100%; margin-top: 40px; text-align: center">Edit Images</h1>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class="section contentpart">\r\n    <div class="container">\r\n      <div class="row">\r\n      </div>\r\n    </div>\r\n  </div>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -56,6 +57,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/edit-images.html", "uri": "edit-images.html", "source_encoding": "utf-8", "line_map": {"28": 0, "35": 1, "45": 3, "51": 3, "57": 51}}
+{"filename": "C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/edit-images.html", "uri": "edit-images.html", "source_encoding": "utf-8", "line_map": {"28": 0, "35": 1, "40": 19, "46": 3, "52": 3, "58": 52}}
 __M_END_METADATA
 """

@@ -1,0 +1,128 @@
+input[type="file"] {
+    display: none !important;
+}
+
+.custom-file-upload {
+	font-family: 'Marvel', sans-serif;
+	font-size:1.5em;
+	margin-top: 20px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.col-md-4 {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	position: static;
+}
+
+.image_styling img {
+	transition: .75s;
+	filter: brightness(70%);
+}
+
+.image_styling img:hover {
+	filter: brightness(100%);
+}
+
+.trash {
+	float: right;
+	font-size: 1.7em;
+	color: #990000;
+	transition: .75s;
+	background-color: transparent;
+	border: none;
+}
+
+.trash:hover {
+	color: #ee0000;
+}
+
+.confirm {
+	font-size: 1.7em;
+	color: #009900;
+	transition: .75s;
+	background-color: #fff;
+	border: none;
+}
+
+.confirm:hover {
+	color: #00ee00;
+}
+
+.trash_small {
+	height: 40px;
+	float: right;
+	font-size: 1.3em;
+	color: #990000;
+	transition: .75s;
+	background-color: transparent;
+	border: none;
+}
+
+.trash_small:hover {
+	color: #ee0000;
+}
+
+.cancel {
+	height: 40px;
+	float: right;
+	font-size: 1.3em;
+	color: #555;
+	transition: .75s;
+	background-color: transparent;
+	border: none;
+}
+
+.cancel:hover {
+	color: #000;
+}
+
+.alert {
+	height: 80px;
+}
+
+i.tooltips {
+  position: relative;
+  display: inline;
+}
+
+i.tooltips span {
+  position: absolute;
+  width:151px;
+  color: #FFFFFF;
+  background: #2E2E2E;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+
+i.tooltips span:after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-bottom: 8px solid #2E2E2E;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+
+i:hover.tooltips span {
+  visibility: visible;
+  opacity: 0.8;
+  top: 30px;
+  left: 50%;
+  margin-left: -76px;
+  z-index: 999;
+}
+
+.marvel{
+  font-family: 'Marvel', sans-serif;
+}
