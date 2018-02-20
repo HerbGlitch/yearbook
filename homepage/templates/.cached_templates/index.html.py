@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1518031143.8171434
+_modified_time = 1519154501.2437718
 _enable_loop = True
 _template_filename = 'C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/index.html'
 _template_uri = 'index.html'
@@ -29,6 +29,7 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        request = context.get('request', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
         __M_writer = context.writer()
@@ -46,10 +47,16 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        request = context.get('request', UNDEFINED)
         def content():
             return render_content(context)
         __M_writer = context.writer()
-        __M_writer('\r\n\t<a href="/upload/"><div class="sameFilter" id="mainImage"></div>\r\n\t<a href="/student-life/"><div class="sameFilter" id="imgTopLeft"></div></a>\r\n\t<a href="/clubs/"><div class="sameFilter" id="smallMiddle"></div></a>\r\n\t<a href="/sports/"><div class="sameFilter" id="tallRight"></div></a>\r\n\t<a href="/staffers/"><div class="sameFilter" id="bottomLeft"></div></a>\r\n\t<a href="/candids/"><div class="sameFilter" id="bottomMiddle"></div></a>\r\n')
+        __M_writer('\r\n')
+        if not request.user.adminify:
+            __M_writer('\t\t<a href="/upload/"><div class="sameFilter" id="mainImage"></div>\r\n\t\t<a href="/student-life/"><div class="sameFilter" id="imgTopLeft"></div></a>\r\n\t\t<a href="/clubs/"><div class="sameFilter" id="smallMiddle"></div></a>\r\n\t\t<a href="/sports/"><div class="sameFilter" id="tallRight"></div></a>\r\n\t\t<a href="/staffers/"><div class="sameFilter" id="bottomLeft"></div></a>\r\n\t\t<a href="/candids/"><div class="sameFilter" id="bottomMiddle"></div></a>\r\n')
+        else:
+            __M_writer('\t\t<a href="/upload/"><div class="sameFilter" id="mainImage"></div>\r\n\t\t<a href="/student-life/"><div class="sameFilter" id="imgTopLeft"></div></a>\r\n\t\t<a href="/clubs/"><div class="sameFilter" id="smallMiddle"></div></a>\r\n\t\t<a href="/sports/"><div class="sameFilter" id="tallRight"></div></a>\r\n\t\t<a href="/staffers/"><div class="sameFilter" id="bottomLeft"></div></a>\r\n\t\t<a href="/candids/"><div class="sameFilter" id="bottomMiddle"></div></a>\r\n')
+        __M_writer('\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -57,6 +64,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"28": 0, "35": 1, "40": 10, "46": 3, "52": 3, "58": 52}}
+{"filename": "C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"28": 0, "36": 1, "41": 20, "47": 3, "54": 3, "55": 4, "56": 5, "57": 11, "58": 12, "59": 19, "65": 59}}
 __M_END_METADATA
 """
