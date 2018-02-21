@@ -18,6 +18,7 @@ class User(AbstractUser):
 class images(models.Model):
 	mainImage = models.ImageField(upload_to='homepage/media/', null=True, blank=True)
 	submitted = models.BooleanField(default = False)
+	approved = models.BooleanField(default = False)
 	user_sent = models.ForeignKey(User, null=True, blank=True)
 
 class club(models.Model):
