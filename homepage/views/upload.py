@@ -36,6 +36,14 @@ def submit(request):
 	return HttpResponseRedirect('/upload/')
 
 @view_function
+def approved(request):
+	temp_id = request.urlparams[0]
+	image_to_confirm = images.objects.get(id = temp_id)
+	image_to_confirm.approved = True
+	image_to_confirm.save()
+	return HttpResponseRedirect('/upload/')
+
+@view_function
 def unsubmit(request):
 	temp_id = request.urlparams[0]
 	image_to_confirm = images.objects.get(id = temp_id)
