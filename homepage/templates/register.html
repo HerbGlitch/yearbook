@@ -1,0 +1,15 @@
+<%inherit file="base.htm" />
+
+<%block name="content">
+  <div style="height: 40px"></div>
+  <div class="content">
+    <div class="col-md-6 col-md-push-3" style="padding: 20px;">
+      <h3 style="text-align: center;">Enter your username and password below to log in.</h3>
+      <form id="loginform" class="loginform" action="/register" method="post">${ csrf_input }
+        <div class="form-group">${ form }</div>
+          <a href="/login" class="login">Already a User?</a>
+          <button type="submit" class="loginbtn" style="float: right;">Register</button>
+      </form>
+    </div>
+  </div>
+</%block>
