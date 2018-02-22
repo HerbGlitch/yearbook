@@ -1,7 +1,7 @@
 <%inherit file="base.htm" />
 
 <%block name="content">
-	%if not request.user.adminify:
+	%if not request.user.is_anonymous and request.user.adminify:
 		<a href="/upload/"><div class="sameFilter" id="mainImage"></div>
 		<a href="/student-life/"><div class="sameFilter" id="imgTopLeft"></div></a>
 		<a href="/clubs/"><div class="sameFilter" id="smallMiddle"></div></a>

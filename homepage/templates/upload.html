@@ -94,14 +94,19 @@
           %for image in imageqry:
             <div class="col-md-4">
               <div class="image_styling">
-                <img src="/static/${ image.mainImage }" width="100%"/>
+                <img src="/static/${ image.mainImage }" id="possible_inapropriate${image.id}" width="100%"/>
                 <button onClick="window.location = '/upload.approved/${ image.id }'" id="submit${ image.id }" class="confirm">
                   <i class="fa fa-check"></i>
                 </button>
                 <button class="trash" id="trash${ image.id }" data-singleton="true" onClick="alertShow(${ image.id })"><i class="fas fa-exclamation-triangle"></i></button>
                 <div style="display:none;" class="alert alert-warning" id="alert${ image.id }" role="alert">
-                  <strong>Alert:</strong> Are you sure you want to report this Image?
-                  <button class="trash_small" onClick="window.location = '/upload.delete_Image/${image.id }'">Report</button>
+                  <strong>Please select the reason for reporting this image</strong> Are you sure you want to report this Image?
+                  <form action="" id="form_drop_down" method="post" enctype="multipart/form-data">
+        						${ csrf_input }
+        						${ form_drop_down }
+                    <button class="trash_small" onClick="window.location = '/upload.delete_Image/${image.id }'">Report</button>
+                  </form>
+
                   <button class="cancel" onClick="alertHide(${ image.id })">Cancel</button>
                 </div>
               </div>
@@ -121,6 +126,8 @@
         var displayAlert = document.getElementById("alert" + id);
         displayAlert.style="display: block;";
 
+        var possible_inapropriateHidden = document.getElementById("possible_inapropriate" + id);
+        possible_inapropriateHidden.style = "display: none;";
         var trashHidden = document.getElementById("trash" + id);
         trashHidden.style= "display: none;";
         var submitHidden = document.getElementById("submit" + id);
@@ -131,14 +138,14 @@
         var hideAlert = document.getElementById("alert" + id);
         hideAlert.style="display: none;";
 
+        var possible_inapropriateHidden = document.getElementById("possible_inapropriate" + id);
+        possible_inapropriateHidden.style = "display: initial;";
         var trashShow = document.getElementById("trash" + id);
         trashShow.style= "display: inital;";
         var submitShow = document.getElementById("submit" + id);
         submitShow.style = "display: inital;";
       }
 
-      function deleteImage(){
-      }
     </script>
   %endif
 </%block>

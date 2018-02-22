@@ -18,8 +18,17 @@ from django.http import JsonResponse
 from homepage import models as cmod
 from django import forms
 
+reasons_to_report = (
+    ('Inappropriate', 'Inappropriate Image'),
+	('Vulger', 'Vulger'),
+	('Racism', 'Racism'),
+)
+
 class uploadForm(forms.Form):
 	file = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
+
+class reportChoiceForm(forms.Form):
+	choices = forms.ChoiceField(required = True, choices = reasons_to_report)
 
 @view_function
 def delete_Image(request):
@@ -55,8 +64,11 @@ def unsubmit(request):
 
 @view_function
 def process_request(request):
+	if request.user.is_anonymous:
+		return HttpResponseRedirect('/login/')
+	form = uploadForm(request, initial=model_to_dict(images))
+	form_drop_down = reportChoiceForm()
 	if request.urlparams[0] == "":
-		form = uploadForm(request, initial=model_to_dict(images))
 		if request.method == 'POST':
 			form = uploadForm(request.POST, request.FILES)
 			multipleFiles = request.FILES.getlist('file_field')
@@ -65,15 +77,21 @@ def process_request(request):
 				media.mainImage = mFiles
 				media.user_sent = request.user
 				media.save()
+		if request.user.adminify:
+			imageqry = cmod.images.objects.filter(user_sent = request.user)
+		else:
+			imageqry = images.objects.filter(submitted = True)
 
-		imageqry = cmod.images.objects.all()
+	elif request.urlparams[0] == "admin":
+		imageqry = images.objects.filter(submitted = True)
 
-		template_vars = {
-		'form': form,
-		'now': datetime.now(),
-		'imageqry': imageqry,
-		'request': request,
-		'page_href': 'upload',
-		}
+	template_vars = {
+	'form': form,
+	'form_drop_down': form_drop_down,
+	'now': datetime.now(),
+	'imageqry': imageqry,
+	'request': request,
+	'page_href': 'upload',
+	}
 
-		return dmp_render(request, 'upload.html', template_vars)
+	return dmp_render(request, 'upload.html', template_vars)
