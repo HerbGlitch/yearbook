@@ -18,17 +18,17 @@ from django.http import JsonResponse
 from homepage import models as cmod
 from django import forms
 
-reasons_to_report = (
-    ('Inappropriate', 'Inappropriate Image'),
-	('Vulger', 'Vulger'),
-	('Racism', 'Racism'),
-)
+# reasons_to_report = (
+#     ('Inappropriate', 'Inappropriate Image'),
+# 	('Vulger', 'Vulger'),
+# 	('Racist', 'Racist'),
+# )
 
 class uploadForm(forms.Form):
 	file = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
 
-class reportChoiceForm(forms.Form):
-	choices = forms.ChoiceField(required = True, choices = reasons_to_report)
+# class reportChoiceForm(forms.Form):
+# 	choices = forms.ChoiceField(required = True, choices = reasons_to_report)
 
 @view_function
 def delete_Image(request):
@@ -60,14 +60,20 @@ def unsubmit(request):
 	image_to_confirm.save()
 	return HttpResponseRedirect('/upload/')
 
-
+@view_function
+def report(request):
+	temp_id = request.urlparams[0]
+	image_to_report = images.objects.get(id = temp_id)
+	image_to_report.user_sent.reported = True
+	image_to_report.user_sent.save()
+	return HttpResponseRedirect('/upload/')
 
 @view_function
 def process_request(request):
 	if request.user.is_anonymous:
 		return HttpResponseRedirect('/login/')
 	form = uploadForm(request, initial=model_to_dict(images))
-	form_drop_down = reportChoiceForm()
+	# form_drop_down = reportChoiceForm()
 	if request.urlparams[0] == "":
 		if request.method == 'POST':
 			form = uploadForm(request.POST, request.FILES)
@@ -87,7 +93,7 @@ def process_request(request):
 
 	template_vars = {
 	'form': form,
-	'form_drop_down': form_drop_down,
+	# 'form_drop_down': form_drop_down,
 	'now': datetime.now(),
 	'imageqry': imageqry,
 	'request': request,

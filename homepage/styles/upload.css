@@ -78,7 +78,9 @@ input[type="file"] {
 }
 
 .cancel:hover {
+  cursor: pointer;
 	color: #000;
+  text-decoration: none;
 }
 
 .alert {

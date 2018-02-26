@@ -14,6 +14,7 @@ class User(AbstractUser):
 	userType = models.CharField(max_length=200, null=True, blank=True, default='')
 	approved = models.BooleanField(default = False)
 	adminify = models.BooleanField(default = False)
+	reported = models.BooleanField(default = False)
 
 class images(models.Model):
 	mainImage = models.ImageField(upload_to='homepage/media/', null=True, blank=True)

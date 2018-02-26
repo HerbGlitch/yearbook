@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1519333668.8223104
+_modified_time = 1519675977.9946804
 _enable_loop = True
 _template_filename = 'C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/upload.html'
 _template_uri = 'upload.html'
@@ -30,11 +30,10 @@ def render_body(context,**pageargs):
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         imageqry = context.get('imageqry', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        form_drop_down = context.get('form_drop_down', UNDEFINED)
         csrf_input = context.get('csrf_input', UNDEFINED)
-        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -51,11 +50,10 @@ def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         imageqry = context.get('imageqry', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         def content():
             return render_content(context)
-        form_drop_down = context.get('form_drop_down', UNDEFINED)
         csrf_input = context.get('csrf_input', UNDEFINED)
-        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
         if not request.user.adminify:
@@ -107,15 +105,11 @@ def render_content(context,**pageargs):
                 __M_writer(str( image.id ))
                 __M_writer(')"><i class="fas fa-exclamation-triangle"></i></button>\r\n                <div style="display:none;" class="alert alert-warning" id="alert')
                 __M_writer(str( image.id ))
-                __M_writer('" role="alert">\r\n                  <strong>Please select the reason for reporting this image</strong> Are you sure you want to report this Image?\r\n                  <form action="" id="form_drop_down" method="post" enctype="multipart/form-data">\r\n        \t\t\t\t\t\t')
-                __M_writer(str( csrf_input ))
-                __M_writer('\r\n        \t\t\t\t\t\t')
-                __M_writer(str( form_drop_down ))
-                __M_writer('\r\n                    <button class="trash_small" onClick="window.location = \'/upload.delete_Image/')
-                __M_writer(str(image.id ))
-                __M_writer('\'">Report</button>\r\n                  </form>\r\n\r\n                  <button class="cancel" onClick="alertHide(')
+                __M_writer('" role="alert">\r\n                    Are you sure you want to report this Image?\r\n                    <div style="height: 10px"></div>\r\n                    <a class="cancel" onClick="alertHide(')
                 __M_writer(str( image.id ))
-                __M_writer(')">Cancel</button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n')
+                __M_writer(')">Cancel</a>\r\n                    <a class="trash_small" onClick="window.location = \'/upload.report/')
+                __M_writer(str(image.id ))
+                __M_writer('\'"><button style="background-color: transparent; border: none;">Report</button></a>\r\n                </div>\r\n              </div>\r\n            </div>\r\n')
             __M_writer('        </div>\r\n      </div>\r\n    </div>\r\n    <script src="jquery.js"></script>\r\n    <script src="jquery.form.min.js"></script>\r\n    <script>\r\n      document.getElementById("id_file_field").onchange = function() {\r\n        document.getElementById("form").submit();\r\n      };\r\n\r\n      function alertShow(id){\r\n        var displayAlert = document.getElementById("alert" + id);\r\n        displayAlert.style="display: block;";\r\n\r\n        var possible_inapropriateHidden = document.getElementById("possible_inapropriate" + id);\r\n        possible_inapropriateHidden.style = "display: none;";\r\n        var trashHidden = document.getElementById("trash" + id);\r\n        trashHidden.style= "display: none;";\r\n        var submitHidden = document.getElementById("submit" + id);\r\n        submitHidden.style = "display: none;";\r\n      }\r\n\r\n      function alertHide(id){\r\n        var hideAlert = document.getElementById("alert" + id);\r\n        hideAlert.style="display: none;";\r\n\r\n        var possible_inapropriateHidden = document.getElementById("possible_inapropriate" + id);\r\n        possible_inapropriateHidden.style = "display: initial;";\r\n        var trashShow = document.getElementById("trash" + id);\r\n        trashShow.style= "display: inital;";\r\n        var submitShow = document.getElementById("submit" + id);\r\n        submitShow.style = "display: inital;";\r\n      }\r\n\r\n    </script>\r\n')
         return ''
     finally:
@@ -124,6 +118,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/upload.html", "uri": "upload.html", "source_encoding": "utf-8", "line_map": {"28": 0, "39": 1, "44": 151, "50": 3, "60": 3, "61": 4, "62": 5, "63": 11, "64": 11, "65": 24, "66": 25, "67": 27, "68": 27, "69": 28, "70": 29, "71": 29, "72": 29, "73": 29, "74": 29, "75": 32, "76": 33, "77": 33, "78": 33, "79": 33, "80": 33, "81": 37, "82": 37, "83": 37, "84": 37, "85": 37, "86": 40, "87": 40, "88": 42, "89": 42, "90": 43, "91": 43, "92": 48, "93": 81, "94": 82, "95": 94, "96": 95, "97": 97, "98": 97, "99": 97, "100": 97, "101": 98, "102": 98, "103": 98, "104": 98, "105": 101, "106": 101, "107": 101, "108": 101, "109": 102, "110": 102, "111": 105, "112": 105, "113": 106, "114": 106, "115": 107, "116": 107, "117": 110, "118": 110, "119": 115, "125": 119}}
+{"filename": "C:/Users/yearbook/Desktop/yearbook/yearbook/homepage/templates/upload.html", "uri": "upload.html", "source_encoding": "utf-8", "line_map": {"28": 0, "38": 1, "43": 147, "49": 3, "58": 3, "59": 4, "60": 5, "61": 11, "62": 11, "63": 24, "64": 25, "65": 27, "66": 27, "67": 28, "68": 29, "69": 29, "70": 29, "71": 29, "72": 29, "73": 32, "74": 33, "75": 33, "76": 33, "77": 33, "78": 33, "79": 37, "80": 37, "81": 37, "82": 37, "83": 37, "84": 40, "85": 40, "86": 42, "87": 42, "88": 43, "89": 43, "90": 48, "91": 81, "92": 82, "93": 94, "94": 95, "95": 97, "96": 97, "97": 97, "98": 97, "99": 98, "100": 98, "101": 98, "102": 98, "103": 101, "104": 101, "105": 101, "106": 101, "107": 102, "108": 102, "109": 105, "110": 105, "111": 106, "112": 106, "113": 111, "119": 113}}
 __M_END_METADATA
 """

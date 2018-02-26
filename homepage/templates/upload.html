@@ -100,14 +100,10 @@
                 </button>
                 <button class="trash" id="trash${ image.id }" data-singleton="true" onClick="alertShow(${ image.id })"><i class="fas fa-exclamation-triangle"></i></button>
                 <div style="display:none;" class="alert alert-warning" id="alert${ image.id }" role="alert">
-                  <strong>Please select the reason for reporting this image</strong> Are you sure you want to report this Image?
-                  <form action="" id="form_drop_down" method="post" enctype="multipart/form-data">
-        						${ csrf_input }
-        						${ form_drop_down }
-                    <button class="trash_small" onClick="window.location = '/upload.delete_Image/${image.id }'">Report</button>
-                  </form>
-
-                  <button class="cancel" onClick="alertHide(${ image.id })">Cancel</button>
+                    Are you sure you want to report this Image?
+                    <div style="height: 10px"></div>
+                    <a class="cancel" onClick="alertHide(${ image.id })">Cancel</a>
+                    <a class="trash_small" onClick="window.location = '/upload.report/${image.id }'"><button style="background-color: transparent; border: none;">Report</button></a>
                 </div>
               </div>
             </div>
