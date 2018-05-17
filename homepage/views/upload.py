@@ -20,7 +20,7 @@ from django import forms
 
 # reasons_to_report = (
 #     ('Inappropriate', 'Inappropriate Image'),
-# 	('Vulger', 'Vulger'),
+# 	('Vulgar', 'Vulgar'),
 # 	('Racist', 'Racist'),
 # )
 
